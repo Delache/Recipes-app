@@ -51,6 +51,8 @@
     "typescript-loadable-components-plugin": "^1.0.0",
     "url-join": "^4.0.1",
     "uuid": "^8.2.0",
+    "redux-devtools-extension": "^2.13.8",
+    "systemjs-plugin-json": "^0.3.0",
     "webfontloader": "^1.6.28",
     "yargs-parser": "^18.1.3"
   },
