@@ -32,11 +32,13 @@ const RecipeForm = (editMod: any) => {
     const [recipeIngredients, setRecipeIngredients] = useState(edit ? recipe.ingredients.join('\n') :'')
     const [recipeSteps, setRecipeSteps] = useState(edit? recipe.steps.join('\n') :'')
     const [file, setFile] = useState(null)
+   
 
     const categories = useSelector((state:RootReducer) => state.displayData.categories ? state.displayData.categories :[])
 
     useEffect(()=>{
         window.scrollTo(0, 0)
+
     },[])
 
     const handleChange = (data: any) => {
@@ -54,6 +56,7 @@ const RecipeForm = (editMod: any) => {
                 content_type:data.target.files[0].type
             }
         }
+        setFile(data.target.files[0])
     }
 
     const sendRecipe = () => {
