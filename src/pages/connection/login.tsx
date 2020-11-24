@@ -7,10 +7,11 @@ import { useDispatch } from 'react-redux'
 import { replication } from '../../replication'
 import PouchDB from 'pouchdb'
 import PouchdbFind from 'pouchdb-find'
-import fetch from 'isomorphic-fetch'
+//import fetch from 'isomorphic-fetch'
 import Snack from '../../components/snack'
 import GlobalCss from '../../asset/globalCss'
 import SetData from '../../databases'
+const fetch = require('isomorphic-fetch')
 const crypto = require('crypto')
 const urljoin = require('url-join')
 
