@@ -9,13 +9,13 @@ ENV ENV=${ENV} \
 WORKDIR /usr/src/recipes/app
 COPY package.json ./
 
-RUN yarn install --force --production --check-files
+RUN yarn install --force --production --check-files --network-timeout 1000000
 
 VOLUME /usr/src/recipes/app/node_modules
 COPY . ./
 
 RUN ln -sf .env.$ENV .env
-RUN yarn build
+RUN yarn build --network-timeout 1000000
 
 # Stage 2 - the production environment
 FROM nginx:alpine
@@ -24,7 +24,7 @@ ENV NODE_OPTIONS="--max-old-space-size=8192"
 
 
 # build = build project directory
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /usr/src/recipes/app/build /usr/share/nginx/html/recipes
 
 EXPOSE 80
 
